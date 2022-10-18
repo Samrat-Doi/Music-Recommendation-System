@@ -151,7 +151,7 @@ The exact rating or ranking of objects is ignored
       Third: divide this summation by two
       Finally: F1 score is the inverse of the result
    
-   <img height="80px" src="https://www.researchgate.net/profile/Sebastian-Bittrich/publication/330174519/figure/fig1/AS:711883078258689@1546737560677/Confusion-matrix-Exemplified-CM-with-the-formulas-of-precision-PR-recall-RE.png">
+   <img height="80px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTavHpP-SMbPgG4K6Qbmb00cg52v7sknlChJw&usqp=CAU">
    
 **Matthews correlation coefficient (MCC)**: 
 - It overcomes the drawbacks of F1 score.
@@ -223,6 +223,7 @@ The exact rating or ranking of objects is ignored
             - Select “.zip” and aws will create the application.
            
 
-
-
-
+**APPLICATIONS**
+![](https://music-recommendation-1.herokuapp.com/)
+![](http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/)
+![](https://recommendify01.herokuapp.com)
