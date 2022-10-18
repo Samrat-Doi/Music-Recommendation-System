@@ -222,11 +222,10 @@ The exact rating or ranking of objects is ignored
             - Click on “Create Application”.
             - Select platform and upload code.
             - Select “.zip” and aws will create the application.
-    <img height="200px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/Screenshot%20(15).png">
+ 
+<img height="200px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/Screenshot%20(14).png">
 
 **APPLICATIONS**
 
 <a href="https://music-recommendation-1.herokuapp.com/" target="_blank">Spotify-Recommendation_System1</a>
 <a href="http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/" target="_blank">Spotify-Recommendation_System2</a>
-<a href="https://recommendify01.herokuapp.com" target="_blank">Spotify-Recommendation_System3</a>
-
