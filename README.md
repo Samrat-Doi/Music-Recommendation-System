@@ -57,12 +57,12 @@ Data came from 2 sources:
    - "num_of_edits","liveness" and "speechiness" feature are right skewed.
  *Hence we can conclude, these feature need to be normalized.*
  
- <img height="64px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
+ <img height="300px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
 -In the above picture you can see the distribution of skewed features before and after applying the transformation methods.
    - power of 1/4 was applied to right skewed features.
    - cube root was applied to left skewed features.
-
-![](https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/heatmap.png)
+   - 
+ <img height="300px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/heatmap.png">
 -Strong Negative Co-Relations between Features with threshold =  -0.5
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
 
