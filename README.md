@@ -1,9 +1,9 @@
 # SPOTIFY RECOMMENDATION SYSTEM<br>
-<td>
+ <img height="500px" src="https://dundle.com/resources/images/products/product-google-search/spotify-4x3.png">
 ### PLANNING STAGE OF SYSTEM<br>
-In This Project We Build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
-### WHAT IS A RECOMMENDATION SYSTEM ?<br>
-One of the most used machine learning algorithms is recommendation systems. A Recommendation System is a filtering system which aim is to predict a rating or preference a user would give to an item, eg. a film, a product, a song, etc.
+In This Project, we build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
+### WHAT IS A RECOMMENDATION SYSTEM ?
+- A Recommendation System is a filtering system which aim is to predict a rating or preference a user would give to an item, eg. a film, a product, a song, etc.
 - Spotify use different types of Recommendation Systems which are:
     - Collaborative Filtering Algorithm (Based on users interactions of different track)
     - Content Based Filtering (Based on users demographics and tracks attributes)
@@ -14,12 +14,12 @@ One of the most used machine learning algorithms is recommendation systems. A Re
 ### DATA EXTRACTION<br>
 Data came from 2 sources:
 - API Calls of Spotify's Web API to get audio features for each track.
-- The Spotify Million Playlist Dataset which contained Four separate JSON files
+- The Spotify Million Playlist Dataset which contained Four separate JSON files.
 ### UNDERSTANDING THE DATA:
 - The Spotify million playlist dataset consists of 4 JSON Files:
     - pid - the playlist ID.
-    - name - (optional) - the name of the playlist. For some challenge playlists, the name will be missing.
-    - tracks - a (possibly empty) array of tracks that are in the playlist. Each element of this array contains the following fields:
+    - name - the name of the playlist
+    - tracks - an array of tracks that are in the playlist. Each element of this array contains the following fields:
          * pos - the position of the track in the playlist (zero offset)
          * track_name - the name of the track
          * track_uri - the Spotify URI of the track
@@ -36,10 +36,10 @@ Data came from 2 sources:
     - Energy- It is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. 
     - Id-  Spotify ID for the track.
     - Instrumentalness- Measure of vocals in the track.
-    - Key- Integers map to pitches using standard Pitch Class notation. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.
+    - Key- Integers map to pitches using standard Pitch Class notation. If no key was detected, the value is -1.
     - Liveness- Detects the presence of an audience in the recording. A value above 0.8 provides strong likelihood that the track is live.
-    - Loudness- It is the quality of a sound that is the primary psychological correlate of amplitude. Values typically range between -60 and 0 db.
-    - Mode- Indicates the modality (major or minor) of a track. Major is represented by 1 and minor is 0.
+    - Loudness- It is the quality of a sound, correlate of amplitude and value ranges between -60 and 0 db.
+    - Mode- Indicates the modality of a track. Major is represented by 1 and minor is 0.
     - Speechiness- It detects the presence of spoken words in a track. Values between 0 and 1.
     - Tempo- It is the speed or pace of a given piece and derives directly from the average beat duration.
     - Time_signature- It is the measure of each beat in a bar. The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4".
@@ -51,7 +51,8 @@ Data came from 2 sources:
 - Duplicates rows were identified and dropped from the dataset.
 
 ## EXPLORATORY DATA ANALYSIS <br>
-"""insert  int_visualization_1.png   here""" 
+
+ <img height="500px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png>
 -As per the above graphs:
    - "modified_at" feature seems to be left skewed.
    - "num_of_edits","liveness" and "speechiness" feature are right skewed.
@@ -66,6 +67,10 @@ Data came from 2 sources:
 -Strong Negative Co-Relations between Features with threshold =  -0.5
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
 
+## FEATURE ENGINEERING AND PREPROCESSING <br>
+- "Polarity" feature was created using textblob to calculate the opinion of the tracks using track_name.
+- "Subjectivity" feature was created using textblob to calculate the intensity of opinion of the tracks using track_name.
+
 ## DESIGN AND PROTOTYPE<br>
 -The first approach of memory concentrates on the computation of relationships across products or items separately, while the Model-based approach is investigating both items and ratings by characterizing them.
 - We will concentrate on Collaborative Filtering, which can be globally thought as a matrix-completion problem.
@@ -77,32 +82,25 @@ Data came from 2 sources:
         * The model should obtain the highest accuracy possible by getting the most related songs to input. 
         * The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
 
-
-## DEVELOPMENT STAGE<br>
-### MODEL BUILDING 
-Clustering
- - K-Means and K-Nearest Neighbours can be used for clustering.
- - We divided the tracks into clusters (as there are existed track genres) and recommend to the user according to cluster and popularity.
-
-Choosing the features
- - Correlation is used on reducing the tracks dataset features to the most important one.
- - PCA is used on reducing the most important features into other pca components that maintains the highest variability of the data.
-
-Similarity Function
+### MODEL BUILDING<br>
+  **Choosing the features**
+    - Correlation is used on reducing the tracks dataset features to the most important one.
+    - PCA is used on reducing the most important features into other pca components that maintains the highest variability of the data.
+  **Clustering**
+    - Top 4 PCA are used for clustering as they contain 97% of data variations.
+    - Based on it, K-Nearest Neighbours is used to group the data into clusters.
+    - These clusters are used to predict and group testing data and make recommendation based on it.
+  **Similarity Function**
  - We used track features and created the track metadata feature which includes the the "artist", "album" and "track name" and got the mean of the similarity
  (using cosaine similarity) due to track features and track metadata feature and recommend to the user according to similarity and popularity.
- - It is highly accurate algorithm.
-
-Matrix Completion 
- - Among the various collaborative filtering techniques, matrix factorization is the most popular one, which projects users and items into a shared latent space, using a vector of latent features to represent a user or an item. 
- - After that, a user’s interaction on an item is modeled as the inner product of their latent vectors.
-   <img height="300px" src="https://miro.medium.com/max/1400/1*1ILyeDF-0lZtwHVHLUsuNA.jpeg">
+ - It is used with KNN to increase the accuracy of model.
+   <img height="300px" src="https://www.tyrrell4innovation.ca/wp-content/uploads/2021/06/rsz_jenny_du_miword.png">
 
 #### OUTPUT:
  - When model is given input of a playlist ID, it gives a dataframe of tracks based on clustering of tracks in playlist and its cosine similarity of audio features with the tracks present in the dataset.
  - It also generates playlist based on a single track selected by the user.
 
-## TESTING STAGE
+## TESTING STAGE<br>
 **Problem:** Our dataset doesn't has ratings feature which it difficult to understand the user preference directly.
 **Solution:** We calculated it based on other features present in the playlist and used evaluation metrics to calculate its accuracy.
 
@@ -124,7 +122,7 @@ Matrix Completion
 - *Classification Accuracy Metrics*   
 - *Predictive Accuracy metrics*
 - *Recommendation-centric metrics*
-- *Personaization*
+- *Personalization*
 
 #### CLASSIFICATION ACCURACY METRICS:
 This type of metrics measures whether this recommender system can recommend correct tracks to correct user
@@ -170,14 +168,14 @@ The exact rating or ranking of objects is ignored
     - Measures the ability of the recommender system to recommnd all the items dataset.
     - This measure is important because in some cases you may face that recommender systems doesn't recommend some items for any user.
 
-#### PERSONALISATION
+#### PERSONALIZATION
 -This metric wants to ensure that these certain items are recommended to this specific user.
 - First, apply recommender system on all your users.
 - Then, concatenate all the recommended items to gether with no dublicates in one list.
 - Create a DataFrame so that columns are the recommended items, index is user list.
 - Calculate the disimilarity between users.
     
-## DEPLOYMENT
+## DEPLOYMENT<br>
 - To deploy the recommendation system we have to build a web app on local host first then use a cloud platform to deploy it on web.
 - Building web app on local host can be done using Flask, html, css, reactJS, Streamlit etc.  
   
@@ -222,7 +220,7 @@ The exact rating or ranking of objects is ignored
             - Click on “Create Application”.
             - Select platform and upload code.
             - Select “.zip” and aws will create the application.
-           
+    <img height="200px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/Screenshot%20(15).png">
 
 **APPLICATIONS**
 
