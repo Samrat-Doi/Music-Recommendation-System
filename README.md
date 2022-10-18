@@ -1,6 +1,6 @@
 # SPOTIFY RECOMMENDATION SYSTEM<br>
 
-<img height="200px" src="https://dundle.com/resources/images/products/product-google-search/spotify-4x3.png">
+<img height="300px" src="https://cdn.wccftech.com/wp-content/uploads/2021/07/Spotify.jpg">
  
 ### PLANNING STAGE OF SYSTEM<br>
 In This Project, we build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
