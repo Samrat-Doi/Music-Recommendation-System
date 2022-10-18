@@ -46,12 +46,12 @@ Data came from 2 sources:
     - Valence: It is a measure of positivity with high valence sound more positive (e.g. happy, cheerful),low valence sound more negative (e.g. sad,angry).
 ## Analysis of the data <br>
 - Let's start with the requirements and then go to the preprocessing stage:
--Functional requirements:
-  -The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. 
-  -It analyzes the input and then uses the provided Spotify dataset/API to get the output.
--Non-functional requirements:
-  -The model should obtain the highest accuracy possible by getting the most related songs to input. 
-  -The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
+  -Functional requirements:
+    -The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. 
+    -It analyzes the input and then uses the provided Spotify dataset/API to get the output.
+  -Non-functional requirements:
+    -The model should obtain the highest accuracy possible by getting the most related songs to input. 
+    -The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
 ## Data Visualization <br>
 """insert  int_visualization_1.png   here""" 
 -As per the above graphs:
