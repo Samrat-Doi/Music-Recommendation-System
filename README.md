@@ -54,7 +54,7 @@ Data came from 2 sources:
 
 ## EXPLORATORY DATA ANALYSIS <br>
 
-<img height="500px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png">
+<img height="350px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png">
  
 -As per the above graphs:
    - "modified_at" feature seems to be left skewed.
@@ -229,4 +229,5 @@ The exact rating or ranking of objects is ignored
 **APPLICATIONS**
 
 <a href="https://music-recommendation-1.herokuapp.com/" target="_blank">Spotify-Recommendation_System1</a>
+</tr>
 <a href="http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/" target="_blank">Spotify-Recommendation_System2</a>
