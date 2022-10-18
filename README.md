@@ -1,5 +1,5 @@
-# Spotify-Recommendation-System-With-Deployment<br><br>
-## PLANNING STAGE OF SYSTEM
+# Spotify-Recommendation-System-With-Deployment<br>
+### PLANNING STAGE OF SYSTEM
 In This Project We Build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
 ### WHAT IS A RECOMMENDATION SYSTEM ?<br>
 One of the most used machine learning algorithms is recommendation systems. A Recommendation System is a filtering system which aim is to predict a rating or preference a user would give to an item, eg. a film, a product, a song, etc.
@@ -10,11 +10,10 @@ One of the most used machine learning algorithms is recommendation systems. A Re
 - In this project we build our Recommendation System to recommend similar songs to the user input, based on:
     - Item-Item Based Collaborative Filtering
     - Clustering
-## DATA<br>
+### DATA EXTRACTION<br>
 Data came from 2 sources:
 - API Calls of Spotify's Web API to get audio features for each track.
 - The Spotify Million Playlist Dataset which contained Four separate JSON files
-
 ### UNDERSTANDING THE DATA:
 - The Spotify million playlist dataset consists of 4 JSON Files:
     - pid - the playlist ID.
@@ -67,7 +66,6 @@ Data came from 2 sources:
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
 
 ## DESIGN AND PROTOTYPE<br>
-
 -The first approach of memory concentrates on the computation of relationships across products or items separately, while the Model-based approach is investigating both items and ratings by characterizing them.
 - We will concentrate on Collaborative Filtering, which can be globally thought as a matrix-completion problem.
 - Requirements:
@@ -80,7 +78,7 @@ Data came from 2 sources:
 
 
 ## DEVELOPMENT STAGE<br>
-### Model Building 
+### MODEL BUILDING 
 Clustering
  - K-Means and K-Nearest Neighbours can be used for clustering.
  - We divided the tracks into clusters (as there are existed track genres) and recommend to the user according to cluster and popularity.
@@ -108,21 +106,16 @@ Matrix Completion
 **Solution:** We calculated it based on other features present in the playlist and used evaluation metrics to calculate its accuracy.
 
 **Solution Details:**
-    First: use number of dublicates of every track in play list as user rating
-    Second: take the average of user interactions for every track (calcultaed in first step) weighted by the simmilarity Between this user and the target user
-
-    Third: Calculate genre score:
-        First: Cluster our tracks into 4 clusters
-        Second: Calculate the percentage of this cluster in usr playlist
-                (ex: a playlist has 10 tracks, 5 of them under cluster 1 and ther other five is under cluster 2)
-        Third: for every recommended item we check its cluster and give it the percentage of this cluster in the target user playlist
-
-    Fourth: Calculate the modernity score (apply MinMaxScaler on prduction_year)
-    Fifth: you already has popularity score
-    sixth: combine all the above together
+- First: use number of dublicates of every track in play list as user rating
+- Second: take the average of user interactions for every track (calcultaed in first step) weighted by the simmilarity Between this user and the target user
+- Third: Calculate genre score:
+   - First: Cluster our tracks into 4 clusters.
+   - Second: Calculate the percentage of this cluster in usEr playlist.
+   - Third: for every recommended item we check its cluster and give it the percentage of this cluster in the target user playlist.
+   - Fourth: Calculate the modernity score (apply MinMaxScaler on prduction_year).
+   - Fifth: Combine all the above together.
+    **Final score = w1*interactions_score + w2*genre_score(cluster) + w3*modernity_score + w4*popularity_score + bias**
     
-    Final score = w1*interactions_score + w2*genre_score(cluster) + w3*modernity_score + w4*popularity_score + bias
-
 ### TYPES OF EVAULATION METRICS
 -  There are multiple evaluation metrics that can be used to measure accuracy of recommender system.
 -  So, We should maximize all of them and solve the trade-off that happens between them, because some metrics are oposite to others but both of them is desired.
@@ -157,12 +150,15 @@ The exact rating or ranking of objects is ignored
       Second: take the summation of both of them (recall inverse + precision inverse)
       Third: divide this summation by two
       Finally: F1 score is the inverse of the result
-   <img height="200px" src="https://www.researchgate.net/profile/Sebastian-Bittrich/publication/330174519/figure/fig1/AS:711883078258689@1546737560677/Confusion-matrix-Exemplified-CM-with-the-formulas-of-precision-PR-recall-RE.png">
+   
+   <img height="80px" src="https://www.researchgate.net/profile/Sebastian-Bittrich/publication/330174519/figure/fig1/AS:711883078258689@1546737560677/Confusion-matrix-Exemplified-CM-with-the-formulas-of-precision-PR-recall-RE.png">
+   
 **Matthews correlation coefficient (MCC)**: 
 - It overcomes the drawbacks of F1 score.
 - As we see in our calculations that F1 score doesn't consider True negative items.
 - True negative is a term called for those items which recommender system does't put into his list because these items are not similar to the user.
-<img height="200px" src="https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png">
+
+<img height="50px" src="https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png">
 
 #### RECOMMENDATION CENTERED METRICS:
  - The target of these metrics is to ensure that items recommended by the recommender system has some certain characteristics.
