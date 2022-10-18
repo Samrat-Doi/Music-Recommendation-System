@@ -97,7 +97,7 @@ Data came from 2 sources:
  - We used track features and created the track metadata feature which includes the the "artist", "album" and "track name" and got the mean of the similarity
  (using cosaine similarity) due to track features and track metadata feature and recommend to the user according to similarity and popularity.
  - It is used with KNN to increase the accuracy of model.
-<img height="200px" src="https://www.tyrrell4innovation.ca/wp-content/uploads/2021/06/rsz_jenny_du_miword.png">
+<img height="350px" src="https://www.tyrrell4innovation.ca/wp-content/uploads/2021/06/rsz_jenny_du_miword.png">
 
 #### OUTPUT:
  - When model is given input of a playlist ID, it gives a dataframe of tracks based on clustering of tracks in playlist and its cosine similarity of audio features with the tracks present in the dataset.
