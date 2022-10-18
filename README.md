@@ -1,7 +1,7 @@
 # Spotify-Recommendation-System-With-Deployment<br><br>
-## Planning Stage<br><br>
+## Planning Stage<br>
 In This Project We Build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
-### What's A Recommendation System ?<br><br>
+### What's A Recommendation System ?<br>
 One of the most used machine learning algorithms is recommendation systems. A Recommendation System is a filtering system which aim is to predict a rating or preference a user would give to an item, eg. a film, a product, a song, etc.
 - Spotify use different types of Recommendation Systems which are:
     - Collaborative Filtering Algorithm (Based on users interactions of different track)
@@ -10,7 +10,7 @@ One of the most used machine learning algorithms is recommendation systems. A Re
 - In this project we build our Recommendation System to recommend similar songs to the user input, based on:
     - Item-Item Based Collaborative Filtering
     - Clustering
-## Data<br><br>
+## Data<br>
 Data came from 2 sources:
 - API Calls of Spotify's Web API to get audio features for each track.
 - The Spotify Million Playlist Dataset which contained Four separate JSON files
@@ -44,31 +44,28 @@ Data came from 2 sources:
     - Tempo: It is the speed or pace of a given piece and derives directly from the average beat duration.
     - Time_signature: It is the measure of each beat in a bar. The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4".
     - Valence: It is a measure of positivity with high valence sound more positive (e.g. happy, cheerful),low valence sound more negative (e.g. sad,angry).
-## Analysis of the data <br><br>
-Let's start with the requirements and then go to the preprocessing stage:
-Functional requirements:
-The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. It analyzes the input and then uses the provided Spotify dataset/API to get the output.
-Non-functional requirements:
-The model should obtain the highest accuracy possible by getting the most related songs to input. The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
-## Data Visualization <br><br>
+## Analysis of the data <br>
+- Let's start with the requirements and then go to the preprocessing stage:
+-Functional requirements:
+  -The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. 
+  -It analyzes the input and then uses the provided Spotify dataset/API to get the output.
+-Non-functional requirements:
+  -The model should obtain the highest accuracy possible by getting the most related songs to input. 
+  -The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
+## Data Visualization <br>
 """insert  int_visualization_1.png   here""" 
-As per the above graphs:
-     - "modified_at" feature seems to be left skewed.
-     - "num_of_edits","liveness" and "speechiness" feature are right skewed.
-  *Hence we can conclude, these feature need to be normalized.*
-
-
+-As per the above graphs:
+   - "modified_at" feature seems to be left skewed.
+   - "num_of_edits","liveness" and "speechiness" feature are right skewed.
+ *Hence we can conclude, these feature need to be normalized.*
+ 
 """insert comparision_visualization_3.png here"""
-
-In the above picture you can see the distribution of skewed features before and after applying the transformation methods.
-        - power of 1/4 was applied to right skewed features.
-        - cube root was applied to left skewed features.
+-In the above picture you can see the distribution of skewed features before and after applying the transformation methods.
+   - power of 1/4 was applied to right skewed features.
+   - cube root was applied to left skewed features.
 
 """insert correlation_visualization_4.png here"""
-
-
-<br><br>
-Strong Negative Co-Relations between Features with threshold =  -0.5
+-Strong Negative Co-Relations between Features with threshold =  -0.5
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
 
 
