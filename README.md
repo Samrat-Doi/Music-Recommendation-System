@@ -1,5 +1,6 @@
-# Spotify-Recommendation-System-With-Deployment<br>
-### PLANNING STAGE OF SYSTEM
+# SPOTIFY RECOMMENDATION SYSTEM<br>
+<td>
+### PLANNING STAGE OF SYSTEM<br>
 In This Project We Build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
 ### WHAT IS A RECOMMENDATION SYSTEM ?<br>
 One of the most used machine learning algorithms is recommendation systems. A Recommendation System is a filtering system which aim is to predict a rating or preference a user would give to an item, eg. a film, a product, a song, etc.
@@ -151,7 +152,7 @@ The exact rating or ranking of objects is ignored
       Third: divide this summation by two
       Finally: F1 score is the inverse of the result
    
-   <img height="80px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTavHpP-SMbPgG4K6Qbmb00cg52v7sknlChJw&usqp=CAU">
+   <img height="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTavHpP-SMbPgG4K6Qbmb00cg52v7sknlChJw&usqp=CAU">
    
 **Matthews correlation coefficient (MCC)**: 
 - It overcomes the drawbacks of F1 score.
@@ -224,7 +225,8 @@ The exact rating or ranking of objects is ignored
            
 
 **APPLICATIONS**
-<a href="https://music-recommendation-1.herokuapp.com/" target="_blank">App</a>
-<a href="http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/" target="_blank">App</a>
-<a href="https://recommendify01.herokuapp.com" target="_blank">App</a>
+
+<a href="https://music-recommendation-1.herokuapp.com/" target="_blank">Spotify-Recommendation_System1</a>
+<a href="http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/" target="_blank">Spotify-Recommendation_System2</a>
+<a href="https://recommendify01.herokuapp.com" target="_blank">Spotify-Recommendation_System3</a>
 
