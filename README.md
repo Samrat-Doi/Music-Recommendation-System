@@ -1,5 +1,5 @@
 # Spotify-Recommendation-System-With-Deployment<br><br>
-## PLANNING<br>
+## PLANNING STAGE OF SYSTEM
 In This Project We Build a Spotify Recommendation System as a Machine Learning application. Spotify is a digital music, podcast, and video service that gives us access to millions of songs using Spotify API.
 ### WHAT IS A RECOMMENDATION SYSTEM ?<br>
 One of the most used machine learning algorithms is recommendation systems. A Recommendation System is a filtering system which aim is to predict a rating or preference a user would give to an item, eg. a film, a product, a song, etc.
@@ -45,7 +45,7 @@ Data came from 2 sources:
     - Time_signature- It is the measure of each beat in a bar. The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4".
     - Valence- It is a measure of positivity with high valence sound more positive (e.g. happy, cheerful),low valence sound more negative (e.g. sad,angry).
 
-## Data Cleaning <br>
+## DATA CLEANING <br>
 - Extracted data had variables like "Description" which had more than 40% null values. Hence, they were dropped. 
 - Features with less than 40% null values were filled with median values in continous value type features where as that of mode values in object-type features.
 - Duplicates rows were identified and dropped from the dataset.
@@ -62,12 +62,15 @@ Data came from 2 sources:
    - power of 1/4 was applied to right skewed features.
    - cube root was applied to left skewed features.
 
-"""insert correlation_visualization_4.png here"""
+![](https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/heatmap.png)
 -Strong Negative Co-Relations between Features with threshold =  -0.5
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
 
-## DESIGN AND PROTOTYPE
-Let's start with the requirements:
+## DESIGN AND PROTOTYPE<br>
+
+-The first approach of memory concentrates on the computation of relationships across products or items separately, while the Model-based approach is investigating both items and ratings by characterizing them.
+- We will concentrate on Collaborative Filtering, which can be globally thought as a matrix-completion problem.
+- Requirements:
     -Functional requirements:
         * The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. 
         * It analyzes the input and then uses the provided Spotify dataset/API to get the output.
@@ -76,29 +79,34 @@ Let's start with the requirements:
         * The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
 
 
-## Software Development Stage<br>
-## Model Building <br>
+## DEVELOPMENT STAGE<br>
+### Model Building 
 Clustering
- - K-Means or KNN 
+ - K-Means and K-Nearest Neighbours can be used for clustering.
  - We divided the tracks into clusters (as there are existed track genres) and recommend to the user according to cluster and popularity.
- - Very fast algorithm.
 
 Choosing the features
  - Correlation is used on reducing the tracks dataset features to the most important one.
  - PCA is used on reducing the most important features into other pca components that maintains the highest variability of the data.
 
-Item-Based Filtering
+Similarity Function
  - We used track features and created the track metadata feature which includes the the "artist", "album" and "track name" and got the mean of the similarity
  (using cosaine similarity) due to track features and track metadata feature and recommend to the user according to similarity and popularity.
  - It is highly accurate algorithm.
 
-## Recommendations:
- - We can improve our item-based recommendation algorithm.
- - We can recommend the songs relative to the song name and artist name both, instead of just the song name to get more accurate result.
+Matrix Completion 
+ - Among the various collaborative filtering techniques, matrix factorization is the most popular one, which projects users and items into a shared latent space, using a vector of latent features to represent a user or an item. 
+ - After that, a user’s interaction on an item is modeled as the inner product of their latent vectors.
+ - 
+    ![](https://miro.medium.com/max/1400/1*1ILyeDF-0lZtwHVHLUsuNA.jpeg)
+
+#### OUTPUT:
+ - When model is given input of a playlist ID, it gives a dataframe of tracks based on clustering of tracks in playlist and its cosine similarity of audio features with the tracks present in the dataset.
+ - It also generates playlist based on a single track selected by the user.
 
 ## TESTING STAGE
-**Problem:** Our dataset doesn't has ratings feature
-**Solution:** We calculated it based on another features
+**Problem:** Our dataset doesn't has ratings feature which it difficult to understand the user preference directly.
+**Solution:** We calculated it based on other features present in the playlist and used evaluation metrics to calculate its accuracy.
 
 **Solution Details:**
     First: use number of dublicates of every track in play list as user rating
@@ -116,7 +124,7 @@ Item-Based Filtering
     
     Final score = w1*interactions_score + w2*genre_score(cluster) + w3*modernity_score + w4*popularity_score + bias
 
-### Types Of Evaluation Metrics
+### TYPES OF EVAULATION METRICS
 -  There are multiple evaluation metrics that can be used to measure accuracy of recommender system.
 -  So, We should maximize all of them and solve the trade-off that happens between them, because some metrics are oposite to others but both of them is desired.
 
@@ -125,7 +133,7 @@ Item-Based Filtering
 - *Recommendation-centric metrics*
 - *Personaization*
 
-#### Classification Accuracy Metrics:
+#### CLASSIFICATION ACCURACY METRICS:
 This type of metrics measures whether this recommender system can recommend correct tracks to correct user
 The exact rating or ranking of objects is ignored
  
@@ -160,7 +168,7 @@ The exact rating or ranking of objects is ignored
 
     ![](https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png)
 
-### Predictive Accuracy metrics:
+### PREDICTIVE ACCURACY METRICS:
     This type of metrics measures how ratings calculated by recommender system is close to user ratings
 
 *Mean Absolute Error (MAE)*: The difference between what user actual rate to what our system predicts.
@@ -173,6 +181,7 @@ The exact rating or ranking of objects is ignored
 
 *Root mean square error (RMSE)*: 
    -It's same as MAE but it gives a large weight to large errors
+   
     ![](https://miro.medium.com/max/966/1*lqDsPkfXPGen32Uem1PTNg.png)
 
 *Normalized Mean Absolute Error (NMAE)*: 
@@ -181,7 +190,7 @@ The exact rating or ranking of objects is ignored
     Second: take the difference between rates and the average of this user
     Third: apply MAE on the result of second step
 
-### Recommendation-centric metrics:
+### RECOMMENDATION CENTERED METRICS:
  - The target of these metrics is to ensure that items recommended by the recommender system has some certain characteristics.
  - Diversity: This metric wants to ensure two things:
     - Every recommended item is different form others.
@@ -190,7 +199,7 @@ The exact rating or ranking of objects is ignored
     - Measures the ability of the recommender system to recommnd all the items dataset.
     - This measure is important because in some cases you may face that recommender systems doesn't recommend some items for any user.
 
-### Personaization:
+### PERSONALISATION:
     This metric wants to ensure that these certain items are recommended to this specific user
 
     First: You apply recommender system on all your users
@@ -202,15 +211,47 @@ The exact rating or ranking of objects is ignored
 
     Note: a high personalization score indicates user’s recommendations are different, meaning the model is offering a personalized experience to each user.
 
-## Deployment:
- - Flask
-We create our app by using flask , then deployed it to Heroku.
- - Heroku
-We deploy our flask app to Heroku.com. In this way, we can share our app on the internet with others. We prepared the needed files to deploy our app
-successfully:
-     -  Procfile: contains run statements for app file and setup.sh.
-     -  requirements.txt: contains the libraries must be downloaded by Heroku to run app file (app.py) successfully
-     -  model.py: contains the python code of the recommendation system algorithm.
+## DEPLOYMENT
+- To deploy the recommendation system we have to build a web app on local host first then use a cloud platform to deploy it on web.
+- Building web app on local host can be done using Flask, html, css, reactJS, Streamlit etc.  
+  
+   *Flask*
+   - It is a web framework that provides libraries to build lightweight web applications in python. 
+   - It is based on WSGI toolkit and jinja2 template engine.
+   -  Flask is considered as a micro framework.
+   - We create our app by using flask.
+
+
+- To deploy the app on cloud platform following files are created and uploaded on github:
+      - Procfile: contains run statements for app file and setup.sh.
+      - Requirements.txt: contains the libraries must be downloaded by Heroku to run app file (app.py) successfully, which is create using following command: 
+           *pip freeze > requirement.txt*
+      - App.py: contains the python code of the recommendation system algorithm.
+      - Data files: data files like playlist data and dataset to recommend songs from.
+   
+   *Heroku*
+   - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud [Heroku.com.].
+   - It is directly linked to github repository then the branch containing all reqiured files is deployed.
+   - It builds the dependencies for the app and back-trace the files required and on successful build, app is created.
+
+    *AWS Elastic Beanstalk*
+    - It is a free service for a limited period of time. 
+    - It requires requiremts.txt, procfile and a new folder in app’s directory with the name “.ebextensions” and a new file named as “python.config” in it.
+    - Inside this file add the following lines.
+        option_settings:  "AWS:elasticbeanstalk:container:python":
+        WSGIPath: application:application
+        Save the file.
+        Now add all the files (main python file, flask folders (templates,static..), app data(dataframe,database…), requirements.txt, .ebextensions folder) into
+        single “.zip” archive file.
+        Now your application is ready to be deployed on AWS Elastic Beanstalk.
+        Following are the steps to be followed on AWS website.
+            - Create an AWS account for free.
+            - Go to your dashboard and click on services on top left of your screen.
+            - Then “Create Application” in Elastic Beanstalk
+            - Click on “Create Application”.
+            - Select platform and upload code.
+            - Select “.zip” and aws will create the application.
+           
 
 
 
