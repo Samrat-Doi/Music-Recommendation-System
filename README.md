@@ -44,15 +44,13 @@ Data came from 2 sources:
     - Tempo: It is the speed or pace of a given piece and derives directly from the average beat duration.
     - Time_signature: It is the measure of each beat in a bar. The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4".
     - Valence: It is a measure of positivity with high valence sound more positive (e.g. happy, cheerful),low valence sound more negative (e.g. sad,angry).
-## Analysis of the data <br>
-- Let's start with the requirements and then go to the preprocessing stage:
-  -Functional requirements:
-    -The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. 
-    -It analyzes the input and then uses the provided Spotify dataset/API to get the output.
-  -Non-functional requirements:
-    -The model should obtain the highest accuracy possible by getting the most related songs to input. 
-    -The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
-## Data Visualization <br>
+
+## Data Cleaning <br>
+- Extracted data had variables like "Description" which had more than 40% null values. Hence, they were dropped. 
+- Features with less than 40% null values were filled with median values in continous value type features where as that of mode values in object-type features.
+- Duplicates rows were identified and dropped from the dataset.
+
+## EXPLORATORY DATA ANALYSIS <br>
 """insert  int_visualization_1.png   here""" 
 -As per the above graphs:
    - "modified_at" feature seems to be left skewed.
@@ -67,5 +65,48 @@ Data came from 2 sources:
 """insert correlation_visualization_4.png here"""
 -Strong Negative Co-Relations between Features with threshold =  -0.5
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
+
+## DESIGN AND PROTOTYPE
+Let's start with the requirements:
+    -Functional requirements:
+        * The input will be the song name and the artist's name. The recommendation model goal/output is to find the top ten related songs to the input. 
+        * It analyzes the input and then uses the provided Spotify dataset/API to get the output.
+    -Non-functional requirements:
+        * The model should obtain the highest accuracy possible by getting the most related songs to input. 
+        * The model should be optimized to require as low computational power as possible. The model performance will be then evaluated using evaluation metrics. 
+
+
+# Software Development Stage.
+## Model Building:
+
+Clustering
+ - We divided the tracks into clusters (as there are existed track genres) and recommend to the user according to cluster and popularity.
+ - Very fast algorithm
+
+Choosing the features
+ - Correlation is used on reducing the tracks dataset features to the most important one.
+ - PCA is used on reducing the most important features into other pca components that maintains the highest variability of the data.
+
+Content-Based Filtering
+ - We used track features and created the track metadata feature which includes the the artist + album + track name and got the mean of the similarity
+ (using cosaine similarity) due to track features and track metadata feature. and recommend to the user according to similarity and popularity.
+ - As it takes 20 minutes to iterate over all the tracks
+ - Very accurate algorithm
+
+## Recommendations:
+ - We can improve our content-based recommendation algorithm.
+ - We can recommend the songs relative to the song name, artist instead of the song name only to get more accurate result.
+
+## Deployment:
+ - Flask
+We create our app by using flask , then deployed it to Heroku.
+ - Heroku
+We deploy our flask app to Heroku.com. In this way, we can share our app on the internet with others. We prepared the needed files to deploy our app
+successfully:
+     -  Procfile: contains run statements for app file and setup.sh.
+     -  requirements.txt: contains the libraries must be downloaded by Heroku to run app file (app.py) successfully
+     -  model.py: contains the python code of the recommendation system algorithm.
+
+
 
 
