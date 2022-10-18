@@ -54,7 +54,8 @@ Data came from 2 sources:
 
 ## EXPLORATORY DATA ANALYSIS <br>
 
- <img height="500px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png>
+<img height="500px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png>
+ 
 -As per the above graphs:
    - "modified_at" feature seems to be left skewed.
    - "num_of_edits","liveness" and "speechiness" feature are right skewed.
@@ -152,7 +153,7 @@ The exact rating or ranking of objects is ignored
       Third: divide this summation by two
       Finally: F1 score is the inverse of the result
    
-   <img height="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTavHpP-SMbPgG4K6Qbmb00cg52v7sknlChJw&usqp=CAU">
+<img height="400px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTavHpP-SMbPgG4K6Qbmb00cg52v7sknlChJw&usqp=CAU">
    
 **Matthews correlation coefficient (MCC)**: 
 - It overcomes the drawbacks of F1 score.
@@ -223,7 +224,7 @@ The exact rating or ranking of objects is ignored
             - Select platform and upload code.
             - Select “.zip” and aws will create the application.
  
-<img height="200px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/Screenshot%20(14).png">
+     <img height="400px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/Screenshot%20(14).png">
 
 **APPLICATIONS**
 
