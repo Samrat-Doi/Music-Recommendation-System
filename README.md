@@ -93,8 +93,8 @@ Item-Based Filtering
  - It is highly accurate algorithm.
 
 ## Recommendations:
- - We can improve our content-based recommendation algorithm.
- - We can recommend the songs relative to the song name, artist instead of the song name only to get more accurate result.
+ - We can improve our item-based recommendation algorithm.
+ - We can recommend the songs relative to the song name and artist name both, instead of just the song name to get more accurate result.
 
 ## TESTING STAGE
 **Problem:** Our dataset doesn't has ratings feature
@@ -116,7 +116,7 @@ Item-Based Filtering
     
     Final score = w1*interactions_score + w2*genre_score(cluster) + w3*modernity_score + w4*popularity_score + bias
 
-## Types Of Evaluation Metrics
+### Types Of Evaluation Metrics
 -  There are multiple evaluation metrics that can be used to measure accuracy of recommender system.
 -  So, We should maximize all of them and solve the trade-off that happens between them, because some metrics are oposite to others but both of them is desired.
 
@@ -125,45 +125,45 @@ Item-Based Filtering
 - *Recommendation-centric metrics*
 - *Personaization*
 
-### Classification Accuracy Metrics:
+#### Classification Accuracy Metrics:
 This type of metrics measures whether this recommender system can recommend correct tracks to correct user
 The exact rating or ranking of objects is ignored
  
-* Precision@k: (num of top k recommendations that are relevant)/(num of items that are recommended)
-       - First, we look at two lists:
-           - first list: items that user interacted with
-           - second list: items that are recommended
-      - Second, we find the number of intersected items between the two lists
-      - Third, we divide it (number of intersected items) by the number of the **second** list
+* Precision@k*: (num of top k recommendations that are relevant)/(num of items that are recommended)
+      First, we look at two lists:
+           first list: items that user interacted with
+           second list: items that are recommended
+      Second, we find the number of intersected items between the two lists
+      Third, we divide it (number of intersected items) by the number of the **second** list
 
-* Recall@k: It is a fraction of top 'k' recommended items that are in a set of items relevant to the user.
-      - First we look at two lists:
-          - first list: items that user interacted with
-          - second list: items that are recommended
-      - Second we find the number of intersected items between the two lists
-      - Third we divide it (number of intersected items) by the number of the **first** list
+* Recall@k*: It is a fraction of top 'k' recommended items that are in a set of items relevant to the user.
+      First we look at two lists:
+          first list: items that user interacted with
+          second list: items that are recommended
+      Second we find the number of intersected items between the two lists
+      Third we divide it (number of intersected items) by the number of the **first** list
 
-* F1@k: It's a formula that compines the above two metrics [Precision, recall]
-      - Denominator: inverse of summation (of the inverse of recall and precision) divided by  two
-      - First: we take the inverse of precision then the inverse of recall
-      - Second: take the summation of both of them (recall inverse + precision inverse)
-      - Third: divide this summation by two
-      - Finally: F1 score is the inverse of the result
+* F1@k*: It's a formula that compines the above two metrics [Precision, recall]
+      Denominator: inverse of summation (of the inverse of recall and precision) divided by  two
+      First: we take the inverse of precision then the inverse of recall
+      Second: take the summation of both of them (recall inverse + precision inverse)
+      Third: divide this summation by two
+      Finally: F1 score is the inverse of the result
 
 ![](https://www.researchgate.net/profile/Sebastian-Bittrich/publication/330174519/figure/fig1/AS:711883078258689@1546737560677/Confusion-matrix-Exemplified-CM-with-the-formulas-of-precision-PR-recall-RE.png)
 
 
-Matthews correlation coefficient (MCC): It overcomes the drawbacks of F1 score
-    As we see in our calculations that F1 score doesn't consider True negative items
-    
-    True negative is a term called for those items which recommender system does't put into his list because these items are not similar to the user.
+*Matthews correlation coefficient (MCC)*: 
+- It overcomes the drawbacks of F1 score.
+- As we see in our calculations that F1 score doesn't consider True negative items.
+- True negative is a term called for those items which recommender system does't put into his list because these items are not similar to the user.
 
     ![](https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png)
 
 ### Predictive Accuracy metrics:
     This type of metrics measures how ratings calculated by recommender system is close to user ratings
 
-Mean Absolute Error (MAE): The difference between what user actual rate to what our system predicts.
+*Mean Absolute Error (MAE)*: The difference between what user actual rate to what our system predicts.
     First: you take the difference between actual and predictive rating for every all items of one user.
     Second: take the average of all these diferences. hence you have MAE for one user.
     Third: apply the above two steps on all users so that you have MAE for every user.
@@ -171,28 +171,26 @@ Mean Absolute Error (MAE): The difference between what user actual rate to what 
 
     ![](https://www.statisticshowto.com/wp-content/uploads/2016/10/MAE.png)
 
-Root mean square error (RMSE): 
-    it's same as MAE but it gives a large weight to large errors
-    
+*Root mean square error (RMSE)*: 
+   -It's same as MAE but it gives a large weight to large errors
     ![](https://miro.medium.com/max/966/1*lqDsPkfXPGen32Uem1PTNg.png)
 
-Normalized Mean Absolute Error (NMAE): it normalize user ratings first
+*Normalized Mean Absolute Error (NMAE)*: 
+- It normalize user ratings first
     First: calculate the average of ratings of every user
     Second: take the difference between rates and the average of this user
     Third: apply MAE on the result of second step
 
-## Recommendation-centric metrics:
-    the target of these metrics is to ensure that items recommended by the recommender system has some certain characteristics
-    
-    Diversity: This metric wants to ensure two things
-    - Every recommended item is different form others
-    - recommended item should be new item you the user so the user doesn't interact with before
+### Recommendation-centric metrics:
+ - The target of these metrics is to ensure that items recommended by the recommender system has some certain characteristics.
+ - Diversity: This metric wants to ensure two things:
+    - Every recommended item is different form others.
+    - Recommended item should be new item you the user so the user doesn't interact with before.
+ - Coverage: 
+    - Measures the ability of the recommender system to recommnd all the items dataset.
+    - This measure is important because in some cases you may face that recommender systems doesn't recommend some items for any user.
 
-    Coverage: 
-    - measures the ability of the recommender system to recommnd all the items dataset
-    - this measure is important because in some cases you may face that recommender systems doesn't recommend some items for any user
-
-## Personaization:
+### Personaization:
     This metric wants to ensure that these certain items are recommended to this specific user
 
     First: You apply recommender system on all your users
