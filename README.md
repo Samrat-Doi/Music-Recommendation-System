@@ -168,7 +168,7 @@ The exact rating or ranking of objects is ignored
 
     ![](https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png)
 
-### PREDICTIVE ACCURACY METRICS:
+#### PREDICTIVE ACCURACY METRICS:
     This type of metrics measures how ratings calculated by recommender system is close to user ratings
 
 *Mean Absolute Error (MAE)*: The difference between what user actual rate to what our system predicts.
@@ -184,13 +184,7 @@ The exact rating or ranking of objects is ignored
    
     ![](https://miro.medium.com/max/966/1*lqDsPkfXPGen32Uem1PTNg.png)
 
-*Normalized Mean Absolute Error (NMAE)*: 
-- It normalize user ratings first
-    First: calculate the average of ratings of every user
-    Second: take the difference between rates and the average of this user
-    Third: apply MAE on the result of second step
-
-### RECOMMENDATION CENTERED METRICS:
+#### RECOMMENDATION CENTERED METRICS:
  - The target of these metrics is to ensure that items recommended by the recommender system has some certain characteristics.
  - Diversity: This metric wants to ensure two things:
     - Every recommended item is different form others.
@@ -199,18 +193,13 @@ The exact rating or ranking of objects is ignored
     - Measures the ability of the recommender system to recommnd all the items dataset.
     - This measure is important because in some cases you may face that recommender systems doesn't recommend some items for any user.
 
-### PERSONALISATION:
-    This metric wants to ensure that these certain items are recommended to this specific user
-
-    First: You apply recommender system on all your users
-    Second: Concatenate all the recommended items to gether with no dublicates in one list
-    Third: Concatenate all users in one list with no dublicates.
-    Fourth: Create a DataFrame so that columns are the recommended items, index is user list
-    Fifth: Fill this DataFrame by True or False (True means this item is recommended to this user)
-    sixth: Calculate the disimilarity between users
-
-    Note: a high personalization score indicates user’s recommendations are different, meaning the model is offering a personalized experience to each user.
-
+#### PERSONALISATION
+-This metric wants to ensure that these certain items are recommended to this specific user.
+- First, apply recommender system on all your users.
+- Then, concatenate all the recommended items to gether with no dublicates in one list.
+- Create a DataFrame so that columns are the recommended items, index is user list.
+- Calculate the disimilarity between users.
+    
 ## DEPLOYMENT
 - To deploy the recommendation system we have to build a web app on local host first then use a cloud platform to deploy it on web.
 - Building web app on local host can be done using Flask, html, css, reactJS, Streamlit etc.  
