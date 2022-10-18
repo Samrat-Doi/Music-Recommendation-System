@@ -54,14 +54,14 @@ Data came from 2 sources:
 
 ## EXPLORATORY DATA ANALYSIS <br>
 
-<img height="350px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png">
+<img height="400px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/int_visualization_1.png">
  
 -As per the above graphs:
    - "modified_at" feature seems to be left skewed.
    - "num_of_edits","liveness" and "speechiness" feature are right skewed.
  *Hence we can conclude, these feature need to be normalized.*
  
- <img height="500px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
+ <img height="400px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
 -In the above picture you can see the distribution of skewed features before and after applying the transformation methods.
    - power of 1/4 was applied to right skewed features.
    - cube root was applied to left skewed features.
@@ -97,7 +97,7 @@ Data came from 2 sources:
  - We used track features and created the track metadata feature which includes the the "artist", "album" and "track name" and got the mean of the similarity
  (using cosaine similarity) due to track features and track metadata feature and recommend to the user according to similarity and popularity.
  - It is used with KNN to increase the accuracy of model.
-   <img height="300px" src="https://www.tyrrell4innovation.ca/wp-content/uploads/2021/06/rsz_jenny_du_miword.png">
+<img height="200px" src="https://www.tyrrell4innovation.ca/wp-content/uploads/2021/06/rsz_jenny_du_miword.png">
 
 #### OUTPUT:
  - When model is given input of a playlist ID, it gives a dataframe of tracks based on clustering of tracks in playlist and its cosine similarity of audio features with the tracks present in the dataset.
@@ -153,7 +153,7 @@ The exact rating or ranking of objects is ignored
       Third: divide this summation by two
       Finally: F1 score is the inverse of the result
    
-<img height="400px" src="https://3.bp.blogspot.com/--jLXutUe5Ss/VvPIO6ZH2tI/AAAAAAAACkU/pvVL4L-a70gnFEURcfBbL_R-GnhBR6f1Q/s1600/ConfusionMatrix.png">
+<img height="300px" src="https://3.bp.blogspot.com/--jLXutUe5Ss/VvPIO6ZH2tI/AAAAAAAACkU/pvVL4L-a70gnFEURcfBbL_R-GnhBR6f1Q/s1600/ConfusionMatrix.png">
    
 **Matthews correlation coefficient (MCC)**: 
 - It overcomes the drawbacks of F1 score.
@@ -210,13 +210,12 @@ The exact rating or ranking of objects is ignored
     - It is a free service for a limited period of time. 
     - It requires requiremts.txt, procfile and a new folder in app’s directory with the name “.ebextensions” and a new file named as “python.config” in it.
     - Inside this file add the following lines.
-        option_settings:  "AWS:elasticbeanstalk:container:python":
-        WSGIPath: application:application
-        Save the file.
-        Now add all the files (main python file, flask folders (templates,static..), app data(dataframe,database…), requirements.txt, .ebextensions folder) into
-        single “.zip” archive file.
-        Now your application is ready to be deployed on AWS Elastic Beanstalk.
-        Following are the steps to be followed on AWS website.
+        - option_settings:  "AWS:elasticbeanstalk:container:python":
+        - WSGIPath: application:application
+        - Save the file.
+        - Now add all the files (main python file, flask folders (templates,static..), app data(dataframe,database…), requirements.txt, .ebextensions folder) into single “.zip” archive file.
+        - Now your application is ready to be deployed on AWS Elastic Beanstalk.
+        - Following are the steps to be followed on AWS website.
             - Create an AWS account for free.
             - Go to your dashboard and click on services on top left of your screen.
             - Then “Create Application” in Elastic Beanstalk
