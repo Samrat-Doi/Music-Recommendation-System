@@ -224,6 +224,7 @@ The exact rating or ranking of objects is ignored
            
 
 **APPLICATIONS**
-![](https://music-recommendation-1.herokuapp.com/)
-![](http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/)
-![](https://recommendify01.herokuapp.com)
+<a href="https://music-recommendation-1.herokuapp.com/" target="_blank">App</a>
+<a href="http://spotify-env.eba-pm2exfpy.us-east-1.elasticbeanstalk.com/" target="_blank">App</a>
+<a href="https://recommendify01.herokuapp.com" target="_blank">App</a>
+
