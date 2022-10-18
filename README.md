@@ -57,12 +57,12 @@ Data came from 2 sources:
    - "num_of_edits","liveness" and "speechiness" feature are right skewed.
  *Hence we can conclude, these feature need to be normalized.*
  
- <img height="300px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
+ <img height="500px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
 -In the above picture you can see the distribution of skewed features before and after applying the transformation methods.
    - power of 1/4 was applied to right skewed features.
    - cube root was applied to left skewed features.
    - 
- <img height="300px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/heatmap.png">
+ <img height="700px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/heatmap.png">
 -Strong Negative Co-Relations between Features with threshold =  -0.5
 *Hence, 'acousticness' is negatively correlated with 'energy' and 'loudness'.*
 
@@ -97,8 +97,7 @@ Similarity Function
 Matrix Completion 
  - Among the various collaborative filtering techniques, matrix factorization is the most popular one, which projects users and items into a shared latent space, using a vector of latent features to represent a user or an item. 
  - After that, a user’s interaction on an item is modeled as the inner product of their latent vectors.
- - 
-    ![](https://miro.medium.com/max/1400/1*1ILyeDF-0lZtwHVHLUsuNA.jpeg)
+   <img height="300px" src="https://miro.medium.com/max/1400/1*1ILyeDF-0lZtwHVHLUsuNA.jpeg">
 
 #### OUTPUT:
  - When model is given input of a playlist ID, it gives a dataframe of tracks based on clustering of tracks in playlist and its cosine similarity of audio features with the tracks present in the dataset.
@@ -137,52 +136,33 @@ Matrix Completion
 This type of metrics measures whether this recommender system can recommend correct tracks to correct user
 The exact rating or ranking of objects is ignored
  
-* Precision@k*: (num of top k recommendations that are relevant)/(num of items that are recommended)
+**Precision@k**: (num of top k recommendations that are relevant)/(num of items that are recommended)
       First, we look at two lists:
            first list: items that user interacted with
            second list: items that are recommended
       Second, we find the number of intersected items between the two lists
       Third, we divide it (number of intersected items) by the number of the **second** list
 
-* Recall@k*: It is a fraction of top 'k' recommended items that are in a set of items relevant to the user.
-      First we look at two lists:
-          first list: items that user interacted with
-          second list: items that are recommended
-      Second we find the number of intersected items between the two lists
+**Recall@k**: 
+- It is a fraction of top 'k' recommended items that are in a set of items relevant to the user.
+- First we look at two lists:
+          - first list: items that user interacted with
+          - second list: items that are recommended
+- Second we find the number of intersected items between the two lists
       Third we divide it (number of intersected items) by the number of the **first** list
 
-* F1@k*: It's a formula that compines the above two metrics [Precision, recall]
+**F1@k**: It's a formula that compines the above two metrics [Precision, recall]
       Denominator: inverse of summation (of the inverse of recall and precision) divided by  two
       First: we take the inverse of precision then the inverse of recall
       Second: take the summation of both of them (recall inverse + precision inverse)
       Third: divide this summation by two
       Finally: F1 score is the inverse of the result
-
-![](https://www.researchgate.net/profile/Sebastian-Bittrich/publication/330174519/figure/fig1/AS:711883078258689@1546737560677/Confusion-matrix-Exemplified-CM-with-the-formulas-of-precision-PR-recall-RE.png)
-
-
-*Matthews correlation coefficient (MCC)*: 
+   <img height="200px" src="https://www.researchgate.net/profile/Sebastian-Bittrich/publication/330174519/figure/fig1/AS:711883078258689@1546737560677/Confusion-matrix-Exemplified-CM-with-the-formulas-of-precision-PR-recall-RE.png">
+**Matthews correlation coefficient (MCC)**: 
 - It overcomes the drawbacks of F1 score.
 - As we see in our calculations that F1 score doesn't consider True negative items.
 - True negative is a term called for those items which recommender system does't put into his list because these items are not similar to the user.
-
-    ![](https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png)
-
-#### PREDICTIVE ACCURACY METRICS:
-    This type of metrics measures how ratings calculated by recommender system is close to user ratings
-
-*Mean Absolute Error (MAE)*: The difference between what user actual rate to what our system predicts.
-    First: you take the difference between actual and predictive rating for every all items of one user.
-    Second: take the average of all these diferences. hence you have MAE for one user.
-    Third: apply the above two steps on all users so that you have MAE for every user.
-    Forth: take the average of all these user MAE
-
-    ![](https://www.statisticshowto.com/wp-content/uploads/2016/10/MAE.png)
-
-*Root mean square error (RMSE)*: 
-   -It's same as MAE but it gives a large weight to large errors
-   
-    ![](https://miro.medium.com/max/966/1*lqDsPkfXPGen32Uem1PTNg.png)
+<img height="200px" src="https://miro.medium.com/max/1400/1*R6_BTaMSdCLdNBa0oauFQQ.png">
 
 #### RECOMMENDATION CENTERED METRICS:
  - The target of these metrics is to ensure that items recommended by the recommender system has some certain characteristics.
@@ -211,7 +191,9 @@ The exact rating or ranking of objects is ignored
    - We create our app by using flask.
    
    **STREAMLIT**
-   - 
+   - Streamlit is an open source app framework in Python language. 
+   - It helps us create web apps for data science and machine learning in a short time. 
+   - It is compatible with major Python libraries such as scikit-learn, Keras, PyTorch, SymPy(latex), NumPy, pandas, Matplotlib etc.
 
 
 - To deploy the app on cloud platform following files are created and uploaded on github:
