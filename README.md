@@ -57,7 +57,7 @@ Data came from 2 sources:
    - "num_of_edits","liveness" and "speechiness" feature are right skewed.
  *Hence we can conclude, these feature need to be normalized.*
  
-"""insert comparision_visualization_3.png here"""
+ <img height="64px" src="https://github.com/Samrat-Doi/Spotify-Million-Songs-Playlist-Collaborative-Filtering-Method/blob/main/comparision_visualization_3.png">
 -In the above picture you can see the distribution of skewed features before and after applying the transformation methods.
    - power of 1/4 was applied to right skewed features.
    - cube root was applied to left skewed features.
@@ -204,11 +204,14 @@ The exact rating or ranking of objects is ignored
 - To deploy the recommendation system we have to build a web app on local host first then use a cloud platform to deploy it on web.
 - Building web app on local host can be done using Flask, html, css, reactJS, Streamlit etc.  
   
-   *Flask*
+   **FLASK**
    - It is a web framework that provides libraries to build lightweight web applications in python. 
    - It is based on WSGI toolkit and jinja2 template engine.
    -  Flask is considered as a micro framework.
    - We create our app by using flask.
+   
+   **STREAMLIT**
+   - 
 
 
 - To deploy the app on cloud platform following files are created and uploaded on github:
@@ -218,12 +221,12 @@ The exact rating or ranking of objects is ignored
       - App.py: contains the python code of the recommendation system algorithm.
       - Data files: data files like playlist data and dataset to recommend songs from.
    
-   *Heroku*
+   **Heroku**
    - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud [Heroku.com.].
    - It is directly linked to github repository then the branch containing all reqiured files is deployed.
    - It builds the dependencies for the app and back-trace the files required and on successful build, app is created.
 
-    *AWS Elastic Beanstalk*
+    **AWS Elastic Beanstalk**
     - It is a free service for a limited period of time. 
     - It requires requiremts.txt, procfile and a new folder in app’s directory with the name “.ebextensions” and a new file named as “python.config” in it.
     - Inside this file add the following lines.
